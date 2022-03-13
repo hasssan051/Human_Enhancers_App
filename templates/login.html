@@ -1,11 +1,76 @@
 {% extends "layout.html" %}
 
+
 {% block content %}
     <div class="container">
-        <form action="" method="POST">
-            {{ form.hidden_tag() }}
-            <fieldset></fieldset>
-        </form>
-    </div>
+        <div class="text-center">
+            <h2 class="my-2 display-2">{{ title }}</h2>
+            <p class="lead">Login to access your account.</p>
+        </div>
+        
+        <div class="row justify-content-center my-5">
+            <div class="col-lg-4">
+                <form action="" method="POST">
+                    {{ form.hidden_tag() }}
+                                        
+                    {% if form.email.errors %}
+                        <div class="form-floating mb-3">
+                            {{ form.email(class="form-control form-control-lg is-invalid",placeholder="cow@moose.com") }}
+                            {{ form.email.label(class="form-control-label") }}
+                            <div class="invalid-feedback">
+                                {% for error in form.email.errors %}
+                                    <span>{{error}}</span>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    {% else %}
+                        <div class="form-floating mb-3">
+                            {{ form.email(class="form-control form-control-lg",placeholder="cow@moose.com") }}
+                            {{ form.email.label(class="form-control-label") }}
+                        </div>
+                    {% endif %}
 
-{% endblock content %}adadad
+
+                    {% if form.password.errors %}
+                    <div class="form-floating mb-3">
+                        {{ form.password(class="form-control form-control-lg is-invalid") }}
+                        {{ form.password.label(class="form-label") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.password.errors %}
+                                <span>{{error}}</span>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    {% else %}
+                        <div class="form-floating mb-3">
+                            {{ form.password(class="form-control form-control-lg") }}
+                            {{ form.password.label(class="form-label") }}
+                        </div>
+                    {% endif %}                 
+
+                    <div class="form-check">
+                        {{ form.remember(class="form-check-input")}}
+                        {{ form.remember.label(class="form-check-label")}}
+                    </div>
+                   
+                    <div class="text-center my-4">
+                        {{ form.submit(class="btn btn-success")}}
+                    </div>
+
+                    <small class="text-muted ms-2">
+                        <a href="#">Forgot Password?</a>
+                    </small>
+                
+                    <div class="border-top pt-3">
+                        <small class="text-muted">
+                            Need an account? <a  class="color-primary mt-2 ms-2" href="{{url_for('register')}}">Sign Up Now</a>
+                        </small>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+    
+
+{% endblock content %}
