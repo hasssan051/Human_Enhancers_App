@@ -1,12 +1,14 @@
-from flask import Flask, render_template, url_for,flash, redirect
-from form import RegistrationForm, LoginForm
-app = Flask(__name__)
+from flask import render_template, url_for,flash, redirect, request
+from herd.form import RegistrationForm, LoginForm
+from herd.models import User,UserSearches
+from herd import app
 
-# this secret key is used by wtforms to make shit secure 
-# remember to turn this into an environment variable later on
-app.config['SECRET_KEY'] = '88d99ae8d44e1eb62cd8d4f7c6dc1034'
 
 @app.route("/")
+@app.route("/home")
+def home():
+    return render_template('home.html', title="Putative Enhancer Database")
+
 @app.route("/search")
 def search():
     return render_template('search.html', title='Query the Database')
@@ -38,7 +40,3 @@ def login():
         flash(f' You have been logged in!','success')
         return redirect(url_for('search'))
     return render_template('login.html', title='Login', form=form)
-
-
-if __name__ == '__main__':
-    app.run(debug=True)

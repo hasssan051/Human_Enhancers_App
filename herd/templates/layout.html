@@ -22,17 +22,17 @@
     <script src="js/jquery-3.3.1.min.js"></script>
 
     {% if title %}
-    <title>Enhancer App - {{title}}</title>
+    <title>HERD - {{title}}</title>
     {% else %}
-    <title>Enhancer App</title>
+    <title>HERD</title>
     {% endif %}
 </head>
 
 <body>
     <!--header: navbar-->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark py-3">
         <div class="container">
-            <a class="navbar-brand h1 fw-bold mb-0 color" id="main-heading" href="{{url_for('search')}}">ENHANCER DB</a>
+            <a class="navbar-brand h1 fw-bold mb-0 color" id="main-heading" href="{{url_for('search')}}">HERD</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample07"
                 aria-controls="navbarsExample07" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -40,8 +40,12 @@
 
             <div class="collapse navbar-collapse" id="navbarsExample07">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="{{url_for('search')}}">Search</a>
+                        <a class="nav-link" aria-current="page" href="{{url_for('home')}}">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="{{url_for('search')}}">Search</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{url_for('search_table')}}">Tables</a>
@@ -94,11 +98,11 @@
             <div class="row justify-content-center">
                 <div class="col-md-9 text-center">
                     <div class="footer-site-logo mb-4">
-                        <a href="/">ENHANCER DB</a>
+                        <a href="/">HERD</a>
                     </div>
                     <ul class="list-unstyled nav-links mb-5">
-                        <li><a href="#">About</a></li>
-                        <li><a href="#">Help</a></li>
+                        <li><a href="{{url_for('about')}}">About</a></li>
+                        <li><a href="{{url_for('help')}}">Help</a></li>
                         <li><a href="#">Contact us!</a></li>
                     </ul>
                     <!--
@@ -114,7 +118,7 @@
                     </div>
                     -->
                     <div class="copyright">
-                        <p class="mb-0"><small>&copy; Enhancer DB. All Rights Reserved.</small></p>
+                        <p class="mb-0"><small>&copy; HERD. All Rights Reserved.</small></p>
                     </div>
 
 
