@@ -1,0 +1,70 @@
+{% extends "layout.html" %}
+
+{% block content %}
+    <div class="container">
+        <div class="text-center">
+            <h2 class="mt-3 mb-2 display-4">{{current_user.firstname}} {{current_user.lastname}}</h2>
+            <p class="lead">Edit your Account.</p>
+        </div>
+    
+        <div class="row justify-content-center my-5">
+            <div class="col-lg-4">
+                <form action="" method="POST">
+                    {{ form.hidden_tag() }}
+                    
+                    {% if form.firstname.errors %}
+                        <div class="form-floating mb-3">
+                            {{ form.firstname(class="form-control form-control-lg is-invalid", placeholder='John') }}
+                            {{ form.firstname.label(class="form-label") }}
+                            <div class="invalid-feedback">
+                                {% for error in form.firstname.errors %}
+                                    <span>{{error}}</span>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    {% else %}
+                        <div class="form-floating mb-3">
+                            {{ form.firstname(class="form-control form-control-lg ", placeholder='John') }}
+                            {{ form.firstname.label(class="form-label") }}
+                        </div>
+                    {% endif %}
+                    
+                    {% if form.lastname.errors %}
+                        <div class="form-floating mb-3">
+                            {{ form.lastname(class="form-control form-control-lg is-invalid", placeholder='Doe') }}
+                            {{ form.lastname.label(class="form-label") }}
+                            <div class="invalid-feedback">
+                                {% for error in form.lastname.errors %}
+                                    <span>{{error}}</span>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    {% else %}
+                        <div class="form-floating mb-3">
+                        {{ form.lastname(class="form-control form-control-lg", placeholder='Doe') }}
+                        {{ form.lastname.label(class="form-label") }}
+                        </div>
+                    {% endif %}
+                    
+
+                    <div class="form-floating mb-3" >
+                        {{ form.email(class="form-control form-control-lg",placeholder="cow@moose.com", disabled=True) }}
+                        {{ form.email.label(class="form-control-label") }}
+                    </div>
+                    
+                    {{ form.occupation.label(class="form-control-label") }}
+                    {{ form.occupation(class="form-select form-control") }}
+                   
+                    <div class="text-center my-4">
+                        {{ form.submit(class="btn btn-success")}}
+                    </div>
+                   
+                </form>
+            </div>
+        </div>
+
+
+
+    </div>
+{% endblock content %}
+

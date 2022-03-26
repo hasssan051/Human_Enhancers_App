@@ -21,18 +21,23 @@
     <link href="https://fonts.googleapis.com/css?family=Source+Serif+Pro:400,600&display=swap" rel="stylesheet">
     <script src="js/jquery-3.3.1.min.js"></script>
 
+    <link rel="icon" href="/static/testing.png">
+
     {% if title %}
-    <title>HERD - {{title}}</title>
+    <title>HERD –– {{title}}</title>
     {% else %}
     <title>HERD</title>
     {% endif %}
 </head>
 
-<body>
+<body class = "d-flex flex-column min-vh-100">
     <!--header: navbar-->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark py-3">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark py-3 sticky-top">
         <div class="container">
-            <a class="navbar-brand h1 fw-bold mb-0 color" id="main-heading" href="{{url_for('search')}}">HERD</a>
+            <a class="navbar-brand h1 fw-bold mb-0 color" id="main-heading" href="{{url_for('home')}}">
+                HERD
+            </a>
+
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample07"
                 aria-controls="navbarsExample07" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -58,8 +63,13 @@
                     </li>
                 </ul>
                 <div class="navbar-nav collapse.show">
-                    <a class="nav-item nav-link" href="{{url_for('login')}}">Login</a>
-                    <a class="nav-item nav-link" href="{{url_for('register')}}">Register</a>
+                    {% if current_user.is_authenticated %}
+                        <a class="nav-item nav-link" href="{{url_for('account')}}">Account</a>
+                        <a class="nav-item nav-link" href="{{url_for('logout')}}">Logout</a>
+                    {% else %}
+                        <a class="nav-item nav-link" href="{{url_for('login')}}">Login</a>
+                        <a class="nav-item nav-link" href="{{url_for('register')}}">Register</a>
+                    {% endif %}
                 </div>
             </div>
             <ul class="navbar-nav me-2 mb-2 mb-lg-0 collapse">
@@ -93,7 +103,7 @@
     </main>
 
     <!--footer-->
-    <footer class="footer-16371 footer mt-4 py-4">
+    <footer class="footer-16371 footer mt-auto py-4 ">
         <div class="container-fluid">
             <div class="row justify-content-center">
                 <div class="col-md-9 text-center">
