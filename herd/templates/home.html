@@ -1,11 +1,47 @@
 {% extends "layout.html" %}
 
 {% block content %}
-    <div class="container">
-        <div class="text-center">
-            <h2 class="my-2 display-2">{{ title }}</h2>
-            <p class="lead">A  well-annotated database of putative and validated human enhancers.</p>
-            <p></p>
+<div class="container">
+    
+    <div class="row mb-2 mt-4">
+        <div class="col-8">
+            <div class=" row text-start ">
+                <h2 class="my-2 display-2">{{ title }}</h2>
+                <p class="lead">A well-annotated database of putative and validated human enhancers.</p>
+            </div>
+            <p class="text-start text-wrap fs-6">The database contains putative and validated human enhancers in the hg38 assembly
+                collected and curated
+                from <a href="">ENCODE's DNase-seq expeirment
+                    dataset</a>. The
+                Enhancers' data has been compared with and annotated using Genomic data provided by <a
+                    href="https://www.ncbi.nlm.nih.gov/genome/guide/human/">Reference Genome Annotation</a> and
+                validated
+                Enhancer
+                data provided by <a href="#">VISTA</a>
+                and <a href="">eRNA</a> datasets. Enhancers in the database have been taxonomized based upon whether
+                they overlap Genomic Features such as genes and promoters, and whether they overlap with enhancers found
+                in the <a href="">VISTA</a> and <a href="">eRNA</a> datasets. Currently the database has a total of
+                104555
+                annotated enhancers curated from 1045 DNase-seq experiments from ENCODE.
+            </p>
+
+            <p class="text-start fs-6">In version 1 of HERD you are able to query the database based on chromosome, a
+                specifc region within the chromosome, tissue type and other specifications. To learn more about how you
+                can query HERD please see <a href="{{url_for('help')}}">Help</a>.</p>
+
+        </div>
+        <div class="col-4">
+            <img src="/static/genome_home3.png" class=" mt-4 ms-7 img-fluid" alt="...">
         </div>
     </div>
+    <div class="row my-4">
+        <div class="text-start pull-right">
+            <p class="lead">Start querying the database by pressing the button below:
+                <a type="button" href="{{url_for('search')}}" class="btn ms-4 btn-success btn-lg">Search!</a>
+            </p>
+        </div>
+        
+    </div>
+
+</div>
 {% endblock content %}

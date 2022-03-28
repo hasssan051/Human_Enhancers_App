@@ -1,5 +1,122 @@
 {% extends "layout.html" %}
 
 {% block content %}
+<div class="container">
+    <div class=" row text-start mt-4">
+        <h2 class="my-2 display-3">{{ title }}</h2>
+    </div>
+
+    <div class="row mt-5">
+        <div class="col-3">
+            <h5 class="display-6">Search</h3>
+            <form action="" method="POST">
+                {{ form.hidden_tag() }}
+                <fieldset class="'form-group border border-4 p-3 mb-3">
+                        {% if form.chromosome.errors %}
+                            <div class="form-group mb-2">
+                                {{ form.chromosome.label(class="form-control-label") }}
+                                {{ form.chromosome(class="form-select form-control is-invalid") }}
+                                <div class="invalid-feedback">
+                                    {% for error in form.chromosome.errors %}
+                                    <span>{{error}}</span>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        {% else %}
+                        <div class="form-group mb-2">
+                            {{ form.chromosome.label(class="form-control-label") }}
+                            {{ form.chromosome(class="form-select form-control") }}
+
+                        </div>
+
+                        {% endif %}
+
+
+
+                        {% if form.chromStart.errors %}
+                        <div class="form-group mb-2">
+                            {{ form.chromStart.label(class="form-control-label") }}
+                            {{ form.chromStart(class="form-control form-control-lg is-invalid", placeholder='e.g.
+                            10000') }}
+
+                            <div class="invalid-feedback">
+                                {% for error in form.chromStart.errors %}
+                                <span>{{error}}</span>
+                                {% endfor %}
+                            </div>
+                        </div>
+                        {% else %}
+                        <div class="form-group mb-2">
+                            {{ form.chromStart.label(class="form-control-label") }}
+                            {{ form.chromStart(class="form-control form-control-lg ", placeholder=' e.g. 10000') }}
+
+                        </div>
+                        {% endif %}
+
+                        {% if form.chromEnd.errors %}
+                        <div class="form-group mb-2">
+                            {{ form.chromEnd.label(class="form-control-label") }}
+                            {{ form.chromEnd(class="form-control form-control-lg is-invalid", placeholder='e.g. 20000')
+                            }}
+
+                            <div class="invalid-feedback">
+                                {% for error in form.chromEnd.errors %}
+                                <span>{{error}}</span>
+                                {% endfor %}
+                            </div>
+                        </div>
+                        {% else %}
+                        <div class="form-group mb-2">
+                            {{ form.chromEnd.label(class="form-control-label") }}
+                            {{ form.chromEnd(class="form-control form-control-lg ", placeholder='e.g. 20000') }}
+                        </div>
+                        {% endif %}
+
+                        <div class="form-group mb-2">
+                            {{ form.tissue.label(class="form-control-label") }}
+                            {{ form.tissue(class="form-select form-control") }}
+                        </div>
+
+                        <div class="form-group mb-2">
+                            {{ form.organ.label(class="form-control-label") }}
+                            {{ form.organ(class="form-select form-control") }}
+                        </div>
+
+                        <div class="text-center">
+                            <div class="form-check form-switch form-check-inline">
+                                {{form.treated.label(class="form-check-label", for="checkBoxDisease")}}
+                                {{form.treated(class="form-check-input", type="checkbox", id="checkBoxDisease")}}
+                            </div>
+                            <div class="form-check form-switch form-check-inline">
+                                {{form.disease.label(class="form-check-label", for="checkBoxTreated")}}
+                                {{form.disease(class="form-check-input", type="checkbox", id="checkBoxTreated")}}
+                            </div>
+                        </div>
+                        
+
+                        <!-- <div class="text-center">
+                            <div class="form-check form-switch form-check-inline">
+                                <input class="form-check-input" type="checkbox" id="checkBoxDisease">
+                                <label class="form-check-label" for="checkBoxDisease">Disease</label>
+                            </div>
+                            <div class="form-check form-switch form-check-inline">
+                                <input class="form-check-input" type="checkbox" id="checkBoxTreated">
+                                <label class="form-check-label" for="checkBoxTreated">Treated</label>
+                            </div>
+                        </div> -->
+
+                        <div class="text-center my-4">
+                            {{ form.submit(class="btn btn-block mb-4 btn-primary")}}
+                        </div>
+                </fieldset>
+
+            </form>
+
+        </div>
+        <div class="col-8 ms-2 mb-3">
+            <h5 class=" display-6">Results</h3>
+        </div>
+    </div>
+</div>
 
 {% endblock content %}

@@ -20,8 +20,14 @@ class User(db.Model,UserMixin):
 
 class UserSearches(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    query = db.Column(db.Text, nullable=False)
+    chromosome = db.Column(db.String(30),nullable=False)
+    chromStart = db.Column(db.Integer,nullable=False)
+    chromEnd = db.Column(db.Integer,nullable=False)
+    tissue = db.Column(db.String(50))
+    organ = db.Column(db.String(50))
+    treated = db.Column(db.Boolean)
+    disease = db.Column(db.Boolean)
     user_id = db.Column(db.Integer,db.ForeignKey('user.id'),nullable=False)
 
     def __repr__(self):
-        return f"Search('{self.query}','{self.user_id}')"
+        return f"Search('{self.chromosome}', '{self.chromStart}', '{self.chromEnd}', '{self.tissue}', '{self.organ}', '{self.treated}', '{self.disease}', '{self.user_id}')"

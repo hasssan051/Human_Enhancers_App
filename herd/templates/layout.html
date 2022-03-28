@@ -8,12 +8,10 @@
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-
+    
     <link rel="stylesheet" href="{{url_for('static',filename='main.css') }}">
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-        crossorigin="anonymous"></script>
+
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap" rel="stylesheet">
 
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500&display=swap" rel="stylesheet">
@@ -21,7 +19,7 @@
     <link href="https://fonts.googleapis.com/css?family=Source+Serif+Pro:400,600&display=swap" rel="stylesheet">
     <script src="js/jquery-3.3.1.min.js"></script>
 
-    <link rel="icon" href="/static/testing.png">
+    <link rel="icon" type="image/svg" href="/static/herd_logo.svg">
 
     {% if title %}
     <title>HERD –– {{title}}</title>
@@ -30,22 +28,24 @@
     {% endif %}
 </head>
 
-<body class = "d-flex flex-column min-vh-100">
+<body class="d-flex flex-column min-vh-100">
     <!--header: navbar-->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark py-3 sticky-top">
         <div class="container">
             <a class="navbar-brand h1 fw-bold mb-0 color" id="main-heading" href="{{url_for('home')}}">
-                HERD
+                <img src="/static/herd_logo.svg" alt="" width="30" height="24"
+                    class="d-inline-block align-text-bottom ">
+                ERD
             </a>
 
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample07"
-                aria-controls="navbarsExample07" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar"
+                aria-controls="navbars" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
-            <div class="collapse navbar-collapse" id="navbarsExample07">
+            <div class="collapse navbar-collapse" id="navbar">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    
+
                     <li class="nav-item">
                         <a class="nav-link" aria-current="page" href="{{url_for('home')}}">Home</a>
                     </li>
@@ -56,19 +56,20 @@
                         <a class="nav-link" href="{{url_for('search_table')}}">Tables</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link " href="{{url_for('about')}}">About</a>
-                    </li>
-                    <li class="nav-item">
                         <a class="nav-link " href="{{url_for('help')}}">Help</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link " href="{{url_for('about')}}">About</a>
+                    </li>
+
                 </ul>
                 <div class="navbar-nav collapse.show">
                     {% if current_user.is_authenticated %}
-                        <a class="nav-item nav-link" href="{{url_for('account')}}">Account</a>
-                        <a class="nav-item nav-link" href="{{url_for('logout')}}">Logout</a>
+                    <a class="nav-item nav-link" href="{{url_for('account')}}">Account</a>
+                    <a class="nav-item nav-link" href="{{url_for('logout')}}">Logout</a>
                     {% else %}
-                        <a class="nav-item nav-link" href="{{url_for('login')}}">Login</a>
-                        <a class="nav-item nav-link" href="{{url_for('register')}}">Register</a>
+                    <a class="nav-item nav-link" href="{{url_for('login')}}">Login</a>
+                    <a class="nav-item nav-link" href="{{url_for('register')}}">Register</a>
                     {% endif %}
                 </div>
             </div>
@@ -87,15 +88,15 @@
     <main role="main" class="container">
         <div class="container">
             {% with messages = get_flashed_messages(with_categories=true) %}
-                {% if messages %}
-                    {% for category, message in messages %}
-                        <div class="alert alert-{{ category }}">
-                            {{ message }}
-                        </div>
-                    {% endfor %}
-                {% endif %}
+            {% if messages %}
+            {% for category, message in messages %}
+            <div class="alert alert-{{ category }}">
+                {{ message }}
+            </div>
+            {% endfor %}
+            {% endif %}
             {% endwith %}
-            
+
             {% block content %}{% endblock %}
         </div>
 
@@ -103,14 +104,14 @@
     </main>
 
     <!--footer-->
-    <footer class="footer-16371 footer mt-auto py-4 ">
+    <footer class="footer-16371 footer mt-auto py-2 ">
         <div class="container-fluid">
             <div class="row justify-content-center">
                 <div class="col-md-9 text-center">
                     <div class="footer-site-logo mb-4">
-                        <a href="/">HERD</a>
+                        <a href="/">HERD 1.0</a>
                     </div>
-                    <ul class="list-unstyled nav-links mb-5">
+                    <ul class="list-unstyled nav-links mb-3">
                         <li><a href="{{url_for('about')}}">About</a></li>
                         <li><a href="{{url_for('help')}}">Help</a></li>
                         <li><a href="#">Contact us!</a></li>
@@ -137,14 +138,16 @@
         </div>
     </footer>
 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+        integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+        crossorigin="anonymous"></script>
+
 </body>
 
 
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
-    integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
-    crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
-    integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
-    crossorigin="anonymous"></script>
+
 
 </html>
