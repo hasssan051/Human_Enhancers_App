@@ -95,3 +95,9 @@ a, a:hover {
 .footer-16371 .copyright {
     color: #999999;
 }
+
+.form-group.required .form-control-label:after{
+    margin-left: 0.3rem;
+    content:"*";
+    color:#ff6347;
+}

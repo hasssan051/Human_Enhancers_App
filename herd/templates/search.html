@@ -2,28 +2,28 @@
 
 {% block content %}
 <div class="container">
-    <div class=" row text-start mt-4">
-        <h2 class="my-2 display-3">{{ title }}</h2>
+    <div class=" row text-start mt-2">
+        <h2 class="my-2 display-4">{{ title }}</h2>
     </div>
 
-    <div class="row mt-5">
-        <div class="col-3">
+    <div class="row  mt-5">
+        <div class="col-lg-3 col-md-12 ">
             <h5 class="display-6">Search</h3>
-            <form action="" method="POST">
-                {{ form.hidden_tag() }}
-                <fieldset class="'form-group border border-4 p-3 mb-3">
+                <form action="" method="POST">
+                    {{ form.hidden_tag() }}
+                    <fieldset class="'form-group border border-4 p-3 mb-3">
                         {% if form.chromosome.errors %}
-                            <div class="form-group mb-2">
-                                {{ form.chromosome.label(class="form-control-label") }}
-                                {{ form.chromosome(class="form-select form-control is-invalid") }}
-                                <div class="invalid-feedback">
-                                    {% for error in form.chromosome.errors %}
-                                    <span>{{error}}</span>
-                                    {% endfor %}
-                                </div>
+                        <div class="form-group mb-2 required">
+                            {{ form.chromosome.label(class="form-control-label") }}
+                            {{ form.chromosome(class="form-select form-control is-invalid") }}
+                            <div class="invalid-feedback">
+                                {% for error in form.chromosome.errors %}
+                                <span>{{error}}</span>
+                                {% endfor %}
                             </div>
+                        </div>
                         {% else %}
-                        <div class="form-group mb-2">
+                        <div class="form-group mb-2 required">
                             {{ form.chromosome.label(class="form-control-label") }}
                             {{ form.chromosome(class="form-select form-control") }}
 
@@ -31,10 +31,8 @@
 
                         {% endif %}
 
-
-
                         {% if form.chromStart.errors %}
-                        <div class="form-group mb-2">
+                        <div class="form-group mb-2 required">
                             {{ form.chromStart.label(class="form-control-label") }}
                             {{ form.chromStart(class="form-control form-control-lg is-invalid", placeholder='e.g.
                             10000') }}
@@ -46,7 +44,7 @@
                             </div>
                         </div>
                         {% else %}
-                        <div class="form-group mb-2">
+                        <div class="form-group mb-2 required">
                             {{ form.chromStart.label(class="form-control-label") }}
                             {{ form.chromStart(class="form-control form-control-lg ", placeholder=' e.g. 10000') }}
 
@@ -54,7 +52,7 @@
                         {% endif %}
 
                         {% if form.chromEnd.errors %}
-                        <div class="form-group mb-2">
+                        <div class="form-group mb-2 required">
                             {{ form.chromEnd.label(class="form-control-label") }}
                             {{ form.chromEnd(class="form-control form-control-lg is-invalid", placeholder='e.g. 20000')
                             }}
@@ -66,21 +64,27 @@
                             </div>
                         </div>
                         {% else %}
-                        <div class="form-group mb-2">
+                        <div class="form-group mb-2 required">
                             {{ form.chromEnd.label(class="form-control-label") }}
                             {{ form.chromEnd(class="form-control form-control-lg ", placeholder='e.g. 20000') }}
                         </div>
                         {% endif %}
 
                         <div class="form-group mb-2">
-                            {{ form.tissue.label(class="form-control-label") }}
-                            {{ form.tissue(class="form-select form-control") }}
+                            {{ form.system.label(class="form-control-label") }}
+                            {{ form.system(class="form-select form-control") }}
                         </div>
 
                         <div class="form-group mb-2">
                             {{ form.organ.label(class="form-control-label") }}
                             {{ form.organ(class="form-select form-control") }}
                         </div>
+
+                        <div class="form-group mb-2">
+                            {{ form.tissue.label(class="form-control-label") }}
+                            {{ form.tissue(class="form-select form-control") }}
+                        </div>
+
 
                         <div class="text-center">
                             <div class="form-check form-switch form-check-inline">
@@ -92,7 +96,7 @@
                                 {{form.disease(class="form-check-input", type="checkbox", id="checkBoxTreated")}}
                             </div>
                         </div>
-                        
+
 
                         <!-- <div class="text-center">
                             <div class="form-check form-switch form-check-inline">
@@ -108,15 +112,16 @@
                         <div class="text-center my-4">
                             {{ form.submit(class="btn btn-block mb-4 btn-primary")}}
                         </div>
-                </fieldset>
+                    </fieldset>
 
-            </form>
+                </form>
 
         </div>
-        <div class="col-8 ms-2 mb-3">
+        <div class="col-lg-8 col-sm-12 ms-2 mb-3">
             <h5 class=" display-6">Results</h3>
         </div>
     </div>
 </div>
+<script type=text/javascript src="{{url_for('static', filename='js/search.js') }}"></script>
 
 {% endblock content %}
