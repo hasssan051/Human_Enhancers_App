@@ -1,19 +1,22 @@
-from flask import jsonify, render_template
+from flask import jsonify, render_template, flash, session
 from herd.searches.forms import QueryForm
-from herd.models import UserSearches, experiment_table
+from herd.models import UserSearches, experiments, merged_peak, mp_overlap_vista,vista
 from herd import db
+from herd.searches.utils import return_search_result
 from flask_login import current_user
 
 from flask import Blueprint
 
-searches = Blueprint('searches',__name__)
+searches = Blueprint('searches', __name__)
 
 
 @searches.route("/search", methods=['GET', 'POST'])
+
 def search():
     form = QueryForm()
-    query_system = db.session.query(experiment_table.system.distinct().label("system"))
-    form.system.choices = ['None']
+    query_system = db.session.query(
+        experiments.system.distinct().label("system"))
+    form.system.choices = ['Any']
     form.system.choices += [row.system for row in query_system.all()]
 
     if form.validate_on_submit():
@@ -23,39 +26,48 @@ def search():
             db.session.add(user_query)
             db.session.commit()
         # starting here we query the HERD database
-        if form.system.value == 'None':
-            pass
-        else: 
-            if form.organ.value == 'None':
-                pass
-            else:
-                if form.tissue.value == 'None':
-                    pass
-
+        result = return_search_result(chrom=form.chromosome.data, chromStart=form.chromStart.data, chromEnd=form.chromEnd.data, system=form.system.data,
+                                    tissue=form.tissue.data, organ=form.organ.data, treated=form.treated.data, disease=form.disease.data)
+        # session["herd_query_form"] = form
+        return render_template('search.html', title='Query the Database', form=form, result=result)
     return render_template('search.html', title='Query the Database', form=form)
+
+# @searches.route("/", methods=['GET', 'POST'])
+
 
 @searches.route("/organ/<system>")
 def organ(system):
-    if system != 'None':
-        organs = db.session.query(experiment_table.organ.distinct()).filter_by(system=system).all()
+    if system != 'Any':
+        organs = db.session.query(
+            experiments.organ.distinct()).filter_by(system=system).all()
         organArray = []
-        organArray.append({'organ':'None'})
+        organArray.append({'organ': 'Any'})
         for organ in organs:
             organObj = {}
-            organObj['organ'] = organ[0] 
+            organObj['organ'] = organ[0]
             organArray.append(organObj)
-        return jsonify({'organs':organArray})
-    return jsonify({'organs':[{'organ':'Select a System First'}]})
+        return jsonify({'organs': organArray})
+    return jsonify({'organs': [{'organ': 'Any'}]})
+
 
 @searches.route("/tissue/<organ>")
 def tissue(organ):
-    if organ != 'None':
-        tissues = db.session.query(experiment_table.tissue.distinct()).filter_by(organ=organ).all()
+    if organ != 'Any':
+        tissues = db.session.query(
+            experiments.tissue.distinct()).filter_by(organ=organ).all()
         tissueArray = []
-        tissueArray.append({'tissue':'None'})
+        tissueArray.append({'tissue': 'Any'})
         for tissue in tissues:
             tissueObj = {}
-            tissueObj['tissue'] = tissue[0] 
+            tissueObj['tissue'] = tissue[0]
             tissueArray.append(tissueObj)
-        return jsonify({'tissues':tissueArray})
-    return jsonify({'tissues':[{'tissue':'Select an Organ First'}]})
+        return jsonify({'tissues': tissueArray})
+    return jsonify({'tissues': [{'tissue': 'Any'}]})
+
+
+
+
+
+# @searches.route('/api/data')
+# def data():
+#     return {'data': []}

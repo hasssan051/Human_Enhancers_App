@@ -23,15 +23,16 @@ def create_app(config=Config):
     app = Flask(__name__)
     app.config.from_object(Config)
 
-    db.init_app(app)
-    bcrypt.init_app(app)
-    login_manager.init_app(app)
+    with app.app_context():
+        db.init_app(app)
+        bcrypt.init_app(app)
+        login_manager.init_app(app)
 
-    from herd.users.routes import users
-    from herd.main.routes import main
-    from herd.searches.routes import searches
-    app.register_blueprint(users)
-    app.register_blueprint(main)
-    app.register_blueprint(searches)
+        from herd.users.routes import users
+        from herd.main.routes import main
+        from herd.searches.routes import searches
+        app.register_blueprint(users)
+        app.register_blueprint(main)
+        app.register_blueprint(searches)
 
     return app

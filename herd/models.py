@@ -35,7 +35,7 @@ class UserSearches(db.Model):
         return f"Search('{self.chromosome}', '{self.chromStart}', '{self.chromEnd}', '{self.tissue}', '{self.organ}', '{self.treated}', '{self.disease}', '{self.user_id}')"
 
 
-class experiment_table(db.Model):
+class experiments(db.Model):
     __bind_key__ = 'herd'
     experimentAccession = db.Column(db.String(50),nullable=False)
     system = db.Column(db.String(500),nullable=False)
@@ -49,7 +49,10 @@ class experiment_table(db.Model):
     biosampleAge = db.Column(db.String(100))
     narrowPeaksAccession = db.Column(db.String(100),primary_key=True, nullable=False)
 
-
+class mp_narrow_accession(db.Model):
+    __bind_key__ = 'herd'
+    mergedPeakId = db.Column(db.Integer,db.ForeignKey('merged_peak.mergedPeakId'),primary_key=True, nullable=False,autoincrement=False)
+    narrowPeaksAccession = db.Column(db.String(100),db.ForeignKey('experiments.narrowPeaksAccession'),primary_key=True, nullable=False,autoincrement=False)
 
 class merged_peak(db.Model):
     __bind_key__ = 'herd'
@@ -60,12 +63,10 @@ class merged_peak(db.Model):
     chromEnd = db.Column(db.Integer,nullable=False)
     Prefixes = db.Column(db.String(10),nullable=False)
     Location = db.Column(db.String(50))
+    
 
 
-class mp_narrow_accession(db.Model):
-    __bind_key__ = 'herd'
-    mergedPeakId = db.Column(db.Integer,db.ForeignKey('merged_peak.mergedPeakId'),primary_key=True, nullable=False,autoincrement=False)
-    narrowPeaksAccession = db.Column(db.String(100),db.ForeignKey('experiment_table.narrowPeaksAccession'),primary_key=True, nullable=False,autoincrement=False)
+
 
 
 class vista(db.Model):

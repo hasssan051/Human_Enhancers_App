@@ -1,5 +1,3 @@
-
-
 from flask_wtf import FlaskForm
 from wtforms import SubmitField, BooleanField, SelectField, IntegerField
 from wtforms.validators import DataRequired, ValidationError,NumberRange, AnyOf
@@ -20,10 +18,9 @@ class QueryForm(FlaskForm):
                              'chr11', 'chr12', 'chr13', 'chr14', 'chr15', 'chr16', 'chr17', 'chr18', 'chr19', 'chr20', 'chr21', 'chr22', 'chrX', 'chrY'],'Please select a chromosome value')])
     chromStart = IntegerField('chromStart',validators=[DataRequired(),NumberRange(min=1,message='Please provide a number above 1')])
     chromEnd = IntegerField('chromEnd',validators=[DataRequired(),NumberRange(min=1,message='Please provide a number above 1'),validate_chromStart_chromEnd])
-    system = SelectField('System',choices=['None','Embryo','Musculoskeletal','Integumentary','Endocrine','Lymphatic','Urinary','Reproductive','Circulatory','Nervous','Digestive','Respiratory'])
-    organ = SelectField('Organ', choices=['Select a System first'])
-    tissue = SelectField('Tissue',choices=['Select an Organ First'])
+    system = SelectField('System',choices=['Any','Embryo','Musculoskeletal','Integumentary','Endocrine','Lymphatic','Urinary','Reproductive','Circulatory','Nervous','Digestive','Respiratory'])
+    organ = SelectField('Organ', choices=['Any'])
+    tissue = SelectField('Tissue',choices=['Any'])
     treated = BooleanField('Treated')
     disease = BooleanField('Disease')
-
     submit = SubmitField('Search')
