@@ -1,6 +1,6 @@
 :root {
 
-    --theadColor: #cc5333;
+    --theadColor: #0093E9;
 
 }
 
@@ -8,22 +8,25 @@ body {
     background: #f2ddd9;
     color: #333333;
 
-
-
 }
+
+
 
 #searchFeildSet{
     /* background: linear-gradient(90deg, #DC143C 0%, #fd5c63 50%, rgba(252,176,69,1) 100%); */
     /* background: linear-gradient(90deg, rgb(0, 0, 0) 3%, rgb(32, 30, 30) 91%); */
     /* background: linear-gradient(90deg, rgba(93,106,167,1) 3%, rgba(53,117,224,0.5805672610841212) 91%); */
     /* background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%); */
-    background: -webkit-linear-gradient(to right, #00b4db, #0083b0); /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #00b4db, #0083b0);
+    /* background: -webkit-linear-gradient(to right, #00b4db, #0083b0); 
+    background: linear-gradient(to right, #00b4db, #0083b0); */
+    background-color: #0093E9;
+    background-image: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%);
     border-radius: 25px;
     border: 1px solid rgb(197, 197, 197);
 }
 
 table.dataTable {
+    
     font-family: "Open Sans", sans-serif;
 
     box-shadow: #bbbbbb 0px 0px 5px 0px;
@@ -35,9 +38,10 @@ table.dataTable {
 }
 
 thead {
+    color:black;
 
     background-color: var(--theadColor);
-
+    /* background-image: linear-gradient( 135deg, #97ABFF 10%, #123597 100%); */
 
 
 }
@@ -151,11 +155,12 @@ color: #000;
 
 tbody tr:hover {
 
-    background-color: #3a6186 !important;
+    background-color: #52E5E7 !important;
 
-    color: rgb(247, 235, 235);
+    /* color: rgb(247, 235, 235); */
 
 }
+
 
 .dataTables_wrapper .dataTables_paginate .paginate_button.current,
 

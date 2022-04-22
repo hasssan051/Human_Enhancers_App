@@ -1,0 +1,16 @@
+
+#datasetList{
+    background-image: linear-gradient(to top, #a8edea 0%, #fed6e3 100%);
+}
+
+.doc_imgs{
+    height:auto;
+    width:700px;
+    border:2px solid #fff;
+    -moz-box-shadow: 10px 10px 5px #ccc;
+    -webkit-box-shadow: 10px 10px 5px #ccc;
+    box-shadow: 10px 10px 5px #ccc;
+    -moz-border-radius:25px;
+    -webkit-border-radius:25px;
+    border-radius:25px;
+}

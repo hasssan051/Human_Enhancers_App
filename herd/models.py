@@ -31,8 +31,20 @@ class UserSearches(db.Model):
     disease = db.Column(db.Boolean)
     user_id = db.Column(db.Integer,db.ForeignKey('user.id'),nullable=False)
 
+    def to_dict(self):
+        return {
+            'Chromosome':self.chromosome,
+            'chromStart':self.chromStart,
+            'chromEnd': self.chromEnd,
+            'System': self.system,
+            'Organ': self.organ,
+            'Tissue': self.tissue,
+            'Treated': self.treated,
+            'Disease': self.disease
+        }
+
     def __repr__(self):
-        return f"Search('{self.chromosome}', '{self.chromStart}', '{self.chromEnd}', '{self.tissue}', '{self.organ}', '{self.treated}', '{self.disease}', '{self.user_id}')"
+        return f"Search('{self.chromosome}', '{self.chromStart}', '{self.chromEnd}','{self.system}', '{self.organ}', '{self.tissue}', '{self.treated}', '{self.disease}', '{self.user_id}')"
 
 
 class experiments(db.Model):
@@ -48,6 +60,8 @@ class experiments(db.Model):
     lifeStage = db.Column(db.String(45))
     biosampleAge = db.Column(db.String(100))
     narrowPeaksAccession = db.Column(db.String(100),primary_key=True, nullable=False)
+    #merged_peaks = db.relationship('mp_narrow_accession',secondary='merged_peaks',lazy=True)
+
 
 class mp_narrow_accession(db.Model):
     __bind_key__ = 'herd'
@@ -63,10 +77,6 @@ class merged_peak(db.Model):
     chromEnd = db.Column(db.Integer,nullable=False)
     Prefixes = db.Column(db.String(10),nullable=False)
     Location = db.Column(db.String(50))
-    
-
-
-
 
 
 class vista(db.Model):

@@ -1,5 +1,256 @@
 {% extends "layout.html" %}
 
+{% block stylesheet %}
+
+<link rel="stylesheet" href="{{url_for('static',filename='css/help.css') }}">
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs5/jq-3.6.0/dt-1.11.5/b-2.2.2/b-colvis-2.2.2/r-2.2.9/sc-2.0.5/sp-2.0.0/datatables.min.css"/>
+
+{% endblock %}
+
+
+
 {% block content %}
 
+<div class="container row">
+    <div class="col-lg-3">
+        <!-- <nav id="sidebar" class="navbar navbar-light bg-light flex-column align-items-stretch p-3">
+            <a class="navbar-brand" href="#">Contents</a>
+            <nav class="nav nav-pills flex-column">
+              <a class="nav-link" href="#item-1">What is the HERD Database?</a>
+            </nav> 
+            <nav class="nav nav-pills flex-column">
+              <a class="nav-link" href="#item-2">Creating and using an account</a>
+              <nav class="nav nav-pills flex-column">
+                <a class="nav-link ms-3 my-1" href="#item-2-1">Benefits of creating an Account</a>
+
+              </nav> 
+          
+              style="position:relative;height:100vh;overflow-y:auto;"
+            </nav>
+          </nav> -->
+
+
+    </div>
+
+    <div class="col-lg-9 mb-3" data-bs-spy="scroll" data-bs-target="#sidebar" data-bs-offset="0" tabindex="0">
+        <div class=" text-left mt-2 mb-4">
+            <h2 class="my-2 display-3">{{ title }}</h2>
+        </div>
+        <h2 class="h2" id="item-1">What is the HERD Database?</h2>
+        <p>The HERD database is a reliable, well-annotated database containing validated and putative human enhancers.
+            The enhancers data is primarily based on DNase-seq experiments from the ENCODE consortium. </p>
+        <p>The DNase-seq experiments contain narrow peaks which are areas identified as being Accessible Chromatin
+            Region (ACRs)
+            and are regions where human enhancers can potentially exist. To identify potential and validated enhancers
+            from the group of ACRs
+            the original narrow peaks are transformed and compared with three different datasets:
+        </p>
+        <ul class="list-group mb-4" id="datasetList">
+            <li class="list-group-item">1) <a href="https://www.ncbi.nlm.nih.gov/genome/guide/human/">RefSeq Reference
+                    Genome</a>: contains information on genomic features such as genes, promoters, introns and exons. If
+                an ACR overlaps with certains genes/promoters we can be confident in eliminating the ACR as an enhancer.
+            </li>
+            <li class="list-group-item">2) <a href="https://enhancer.lbl.gov/">VISTA enhancers</a>: contains
+                <b>experimentally validated</b> human and mouse enhancers. If an ACR overlaps with a VISTA enhancer, we
+                can confidently rule it as an enhancer. </li>
+            <li class="list-group-item">3) <a href="https://slidebase.binf.ku.dk/human_enhancers/results">eRNAs from
+                    FANTOM5 CONSORTIUM</a>: contains long-coded RNAs that are transcribed from enhancers. Since they can
+                point towards where an enhancer might exist, an ACR overlapping with an eRNA will be considered an
+                enhancer. </li>
+        </ul>
+        <p><b>Comparisons with the above mentioned datasets allow us to taxonomize ACRs into 4 different
+                annotations:</b></p>
+
+        <ol class="list-group list-group-numbered mb-4">
+            <li class="list-group-item d-flex justify-content-between align-items-start">
+                <div class="ms-2 me-auto">
+                    <div class="fw-bold">VE: Validated Enhancers</div>
+                    These are ACRs that are <b>confirmed</b> to be enhancers as they do not overlap with genes/promoters
+                    (except maybe a protein-coding gene in the intron region) and either overlap with a VISTA enhancer
+                    or an eRNA.
+                </div>
+
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-start">
+                <div class="ms-2 me-auto">
+                    <div class="fw-bold">PE: Potential Enhancers</div>
+                    These are ACRs that can <b>potentially</b> be enhancers because even though they do not overlap with
+                    a VISTA
+                    enhancer or an eRNA, they also don't overlap with any genes/promoters (except maybe a protein-coding
+                    gene in the intron region).
+                </div>
+
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-start">
+                <div class="ms-2 me-auto">
+                    <div class="fw-bold">AC: Accessible Chromotin</div>
+                    These ACRs are identified to in fact be Accessible Chromatin and are most likely <b>not an
+                        enhancer</b>
+                    because they overlap with genes/promoters (not including protein-coding gene in the intron region).
+                </div>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-start">
+                <div class="ms-2 me-auto">
+                    <div class="fw-bold">ACVR: Accessible Chromatin overlaps VISTA or eRNA </div>
+
+                </div>
+            </li>
+        </ol>
+
+        <h2 class="h2" id="item-2">Creating and using an account</h2>
+        <p>You can register with this application by going on the <a href="{{url_for('users.register')}}">Register</a>
+            page and filling in your details. The below image shows you an example.</p>
+        <figure class="figure">
+            <img src="{{url_for('static',filename='imgs_documentation/register.png') }}"
+                class="figure-img img-fluid rounded doc_imgs" alt="img for register page">
+            <figcaption class="figure-caption text-end">Registering with the HERD application</figcaption>
+        </figure>
+
+        <p>After creating your account you can use the <a href="{{url_for('users.login')}}">Login</a> page in order to
+            log into your account:</p>
+        <figure class="figure">
+            <img src="{{url_for('static',filename='imgs_documentation/login.png') }}"
+                class="figure-img img-fluid rounded doc_imgs" alt="img for login page">
+            <figcaption class="figure-caption text-end">Loggin into the HERD application</figcaption>
+        </figure>
+
+        <p>You can edit your account once you are logged in by visiting the <a
+                href="{{url_for('users.account')}}">Account</a> page. You can only really edit your name and occupation
+            so its nothing special.</p>
+        <figure class="figure">
+            <img src="{{url_for('static',filename='imgs_documentation/account.png') }}"
+                class="figure-img img-fluid rounded doc_imgs" alt="img for account page">
+            <figcaption class="figure-caption text-end">Editing your account information</figcaption>
+        </figure>
+
+
+        <h4 class="h4" id="item-2-1">Benefits of creating an account</h4>
+        <p>Creating an account allows you to:</p>
+
+        <ul class="list-group mb-4" id="datasetList">
+            <li class="list-group-item"><b>1) Save queries:</b> Any queries that you make to the database will
+                automatically be saved. You will then be able to view and use queries in your history at any point.</li>
+            <li class="list-group-item"><b>2) Save query results:</b> An account allows you to save and copy the results
+                of queries you have made to the database. </li>
+        </ul>
+
+        <h2 class="h2" id="item-3">Querying the database</h2>
+        <p>The HERD database can be queried using this application in various ways using the <a href="{{url_for('searches.search')}}">Search</a> page.</p>
+        <h5 class="h5">Mandatory Arguments</h5>
+        <p>There are three mandatory arguments that are needed to query the database for Enhancers and ACRs. These are:
+        </p>
+        <ul class="list-group mb-4" id="datasetList">
+            <li class="list-group-item"><b>1. chromosome:</b> Chromosome in the genome for which to look into.</li>
+            <li class="list-group-item"><b>2. chromStart:</b> Start position of the region to search in for the
+                chromosome specified above. It is the chromosomal start position for a region in the chromosome.</li>
+            <li class="list-group-item"><b>3. chromEnd:</b> End position of the region to search in for the chromosome
+                specified above. It is the chromosomal end position for a region in the chromosome. The chromEnd
+                specified must be a larger number then the chromstart</li>
+        </ul>
+
+        <h5 class="h5">Optional Arguments</h5>
+        <p>Optional arguments allow a user to specify the context in which the enhancer or an ACR was found. 
+            Since the ACRs in the HERD database are generated from ENCODE DNase-seq experiments,
+             we have certain information about the subject that the experiment was conducted in which can be used by the user to query the database.
+        </p>
+
+        <p>Without these optional arguments specified the query will consider all ACRs found in all experiments. The optional arguments that the user can specify are the following:</p>
+
+        <ul class="list-group mb-4" id="datasetList">
+            <li class="list-group-item"><b>1. System:</b> the system of the body the experiment was conducted on. </li>
+            <li class="list-group-item"><b>2. Organ:</b> the organ in the system the experiment was conducted on.</li>
+            <li class="list-group-item"><b>3. Tissue:</b> the tissue of the organ the experiment was conducted on.</li>
+            <li class="list-group-item"><b>4. Treated:</b> whether the tissue specified above is treated or not</li>
+            <li class="list-group-item"><b>5. Diseased:</b> whether the tissue specified above is diseased.</li>
+        </ul>
+
+        <p>The available options for System, Organ and Tissue can be seen in the table below:</p>
+
+
+
+       
+        <div class="table-responsive my-5" id="docTableContainer">
+            <table id="docTable" class="table table-striped">
+                <thead>
+                  <tr>
+                    <th>System</th>
+                    <th>Organ</th>
+                    <th>Tissue</th>
+                  </tr>
+                </thead>
+                <tbody>
+                </tbody>
+              </table>
+        </div>
+
+
+
+        <h5 class="h5">Usage Examples</h5>
+        <h6 class="h6">Querying with Mandatory arguments</h6>
+        <figure class="figure">
+            <img src="{{url_for('static',filename='imgs_documentation/mand_args.gif') }}"
+                class="figure-img img-fluid rounded doc_imgs" alt="gif ">
+            <figcaption class="figure-caption text-end ">Using mandatory arguments to search</figcaption>
+        </figure>
+
+        <h6 class="h6">Querying with Optional arguments</h6>
+        <h6 class="h6">Using previously stored queries</h6>
+        <p>Notice how the form is filled as soon as a previous query is selected.</p>
+        <p><i>For this feature to be available you will have to be logged in:</i></p>
+        <figure class="figure">
+            <img src="{{url_for('static',filename='imgs_documentation/prev_histories.gif') }}"
+                class="figure-img img-fluid rounded doc_imgs" alt="gif ">
+            <figcaption class="figure-caption text-end ">Using previously stored queries</figcaption>
+        </figure>
+        <h6 class="h6">Filtering result based on annotation</h6>
+        <figure class="figure">
+            <img src="{{url_for('static',filename='imgs_documentation/filter_anot.gif') }}"
+                class="figure-img img-fluid rounded doc_imgs" alt="gif ">
+            <figcaption class="figure-caption text-end ">Filtering using annotations</figcaption>
+        </figure>
+        <h6>What happens when no result is returned?</h6>
+        <p>When no results are found within the region specified by the user, the table will display two the two closest ACRs 1 upstream and 1 downstream of the region specified within the chromosome specified.
+            In this case at least 1 ACR will be shown in the table (either upstream or downstream)</p>
+        <p>Below you can see a query that returned with no ACRs within the region specified; the user is still shown the closest ACR.</p>
+        <figure class="figure">
+            <img src="{{url_for('static',filename='imgs_documentation/when_empty_result.gif') }}"
+                class="figure-img img-fluid rounded doc_imgs" alt="gif ">
+            <figcaption class="figure-caption text-end ">Filtering using annotations</figcaption>
+        </figure>
+    </div>
+
+
+
+
+</div>
+
 {% endblock content %}
+
+{% block scripts %}
+<!-- <script>
+    var scrollSpy = new bootstrap.ScrollSpy(document.body, {
+    target: '#sidebar'
+})
+</script> -->
+<script>
+    
+    $(document).ready(function() {
+        var docTable = $('#docTable').DataTable({
+            ajax:"{{url_for('main.documentation_table')}}",
+            columns:[
+                {data:'System', orderable:false},
+                {data:'Organ',orderable:false},
+                {data:'Tissue',orderable:false}
+            ],
+            responsive:'true',
+            lengthChange: 'false',
+            
+        });
+        
+    });
+   
+</script>
+
+
+<script type="text/javascript" src="https://cdn.datatables.net/v/bs5/jq-3.6.0/dt-1.11.5/b-2.2.2/b-colvis-2.2.2/r-2.2.9/sc-2.0.5/sp-2.0.0/datatables.min.js"></script>
+{% endblock %}

@@ -7,9 +7,6 @@ import pymysql
 from herd.config import Config
 
 
-# this secret key is used by wtforms to make shit secure 
-# remember to turn this into an environment variable later on
-
 db = SQLAlchemy()
 bcrypt = Bcrypt()
 login_manager = LoginManager()

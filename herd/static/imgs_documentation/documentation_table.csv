@@ -1,0 +1,271 @@
+System,Organ,Tissue
+Circulatory,Artery,Aorta
+Circulatory,Artery,Aorta (Ascending)
+Circulatory,Artery,Aorta (Thoracic)
+Circulatory,Artery,Artery (Tibia)
+Circulatory,Artery,Coronary artery
+Circulatory,Artery,Fibroblast (Aortic adventitia)
+Circulatory,Artery,Pulmonary artery endothelium
+Circulatory,Artery,Pulmonary artery fibroblast
+Circulatory,Blood vessel,Dermis blood vessel endothelium
+Circulatory,Blood vessel,Endothelium
+Circulatory,Blood vessel,Microvascular endothelium (Brain)
+Circulatory,Blood vessel,Microvascular endothelium (Lung)
+Circulatory,Blood vessel,Smooth muscle cell (brain vasculature)
+Circulatory,Brain,Pericyte
+Circulatory,Heart,Atrium (Left)
+Circulatory,Heart,Atrium (Right)
+Circulatory,Heart,"Atrium (Right, auricular region)"
+Circulatory,Heart,Cardiac fibroblast
+Circulatory,Heart,Cardiac muscle
+Circulatory,Heart,Cardiac septum
+Circulatory,Heart,Epicardial mesothelium
+Circulatory,Heart,Heart
+Circulatory,Heart,Myocardium inferior (Left Ventricle)
+Circulatory,Heart,Myocardium inferior (Right Ventricle)
+Circulatory,Heart,Myocardium superior (Left Ventricle) 
+Circulatory,Heart,Myocardium superior (Right Ventricle) 
+Circulatory,Heart,Ventricle (Left)
+Circulatory,Heart,Ventricle (Right)
+Circulatory,Vein,Inferior vena cava
+Circulatory,Vein,Umbilical venous endothelium 
+Digestive,Cell Line,Colon adenocarcinoma
+Digestive,Cell Line,Colon carcinoma
+Digestive,Cell Line,Colon epithelium
+Digestive,Cell Line,Gingival fibroblast
+Digestive,Cell Line,Liver hepatocellular carcinoma
+Digestive,Colon,Colon (Left)
+Digestive,Colon,Colon (Sigmoid)
+Digestive,Colon,Colon (Transverse)
+Digestive,Colon,Colon (descending) mucosa
+Digestive,Colon,Colon mucosa
+Digestive,Esophagus,Epithelium
+Digestive,Esophagus,Muscularis mucosa
+Digestive,Esophagus,Squamous epithelium
+Digestive,Gallbladder,Gallbladder mucosa
+Digestive,Liver,Hepatic stellate cell
+Digestive,Liver,Hepatocyte
+Digestive,Liver,Liver (Left Lobe)
+Digestive,Liver,Liver (Right Lobe)
+Digestive,Mouth,Gingiva fibroblast
+Digestive,Stomach,Stomach
+Embryo,Cell Line,Embryonic stem cell
+Embryo,Cell Line,Kidney
+Embryo,Cell Line,Lung
+Embryo,Cell Line,Lung fibroblast
+Embryo,Cell Line,Skin fibroblast
+Embryo,Cell Line,Trophoblast
+Embryo,Embryo,Amniotic epithelium
+Embryo,Embryo,Amniotic stem cell
+Embryo,Embryo,Atrium (Left cardiac)
+Embryo,Embryo,Brain
+Embryo,Embryo,Cardiac fibroblast
+Embryo,Embryo,Cardiac muscle (differentiated from RUES2 hESC)
+Embryo,Embryo,Cardiac myoblast (differentiated from H7 hESC)
+Embryo,Embryo,Cardiovascular progenitor cell (differentiated from H7 hESC)
+Embryo,Embryo,Chorion
+Embryo,Embryo,Ecto neural progenitor cell (differentiated from H9 hESC)
+Embryo,Embryo,Embryonic stem cell
+Embryo,Embryo,Endoderm
+Embryo,Embryo,Eye
+Embryo,Embryo,Facial prominence
+Embryo,Embryo,Femur
+Embryo,Embryo,Forelimb
+Embryo,Embryo,Forelimb (Left)
+Embryo,Embryo,Heart
+Embryo,Embryo,Heart Ventricle (Left)
+Embryo,Embryo,Heart Ventricle (Right)
+Embryo,Embryo,Hepatocyte (differentiated from H9 hESC)
+Embryo,Embryo,Hindlimb
+Embryo,Embryo,Hindlimb (Left)
+Embryo,Embryo,Islet precursor cell
+Embryo,Embryo,Kidney
+Embryo,Embryo,Kidney (Left)
+Embryo,Embryo,Kidney (Right)
+Embryo,Embryo,Kidney capillary endothelium
+Embryo,Embryo,Limb
+Embryo,Embryo,Liver
+Embryo,Embryo,Lung
+Embryo,Embryo,Mesenchymal stem cell (dedifferentiated)
+Embryo,Embryo,Mesodermal cell (differentiated from H7 hESC)
+Embryo,Embryo,Nephron progenitor cell
+Embryo,Embryo,Neural crest
+Embryo,Embryo,Neural progenitor cell
+Embryo,Embryo,Progenitor cell of endocrine pancreas
+Embryo,Embryo,Retina
+Embryo,Embryo,Spinal cord
+Embryo,Embryo,Stomach
+Embryo,Embryo,Tongue
+Embryo,Embryo,Trophoblast
+Embryo,Embryo,Umbilical cord
+Embryo,Embryo,Urinary bladder
+Embryo,Placenta,Placenta
+Embryo,Placenta,Villous mesenchyme fibroblast
+Embryo,iPSC,Bipolar neuron (differentiated from GM23338 iPSC)
+Embryo,iPSC,iPSC (induced pluripotent stem cell)
+Endocrine,Adrenal,Adrenal gland
+Endocrine,Cell Line,Pancreas adenocarcinoma
+Endocrine,Cell Line,Pancreas ductal carcinoma
+Endocrine,Cell Line,Pancreas epithelium
+Endocrine,Pancreas,Pancreas
+Endocrine,Pancreas,Pancreas (Body)
+Endocrine,Thyroid,Thyroid
+Integumentary,Abdomen,Mesenteric fat pad
+Integumentary,Abdomen,Omental fat pad
+Integumentary,Cell Line,Foreskin fibroblast
+Integumentary,Cell Line,Melanocyte
+Integumentary,Cell Line,Melanoma
+Integumentary,Cell Line,Skin 
+Integumentary,Cell Line,Skin fibroblast
+Integumentary,Cell Line,Skin fibroblast (abdomen)
+Integumentary,Epidermis,Melanocyte
+Integumentary,Skin,Adipocyte
+Integumentary,Skin,Dermal fibroblast
+Integumentary,Skin,Foreskin fibroblast
+Integumentary,Skin,Keratinocyte
+Integumentary,Skin,Skin (Lower leg)
+Integumentary,Skin,Suprapubic skin
+Lymphatic,Bone Marrow,Dendritic cell
+Lymphatic,Bone Marrow,Hematopoietic progenitor cell
+Lymphatic,Bone Marrow,Monocyte
+Lymphatic,Bone Marrow,Stromal cell
+Lymphatic,Cell Line,Acute megakaryocytic leukemia
+Lymphatic,Cell Line,Acute myeloid leukemia
+Lymphatic,Cell Line,Acute myeloid leukemia 
+Lymphatic,Cell Line,Acute promyelocytic leukemia
+Lymphatic,Cell Line,B cell 
+Lymphatic,Cell Line,B cell (Burkitt's lymphoma)
+Lymphatic,Cell Line,B cell (non-Hodgkin lymphoma)
+Lymphatic,Cell Line,B cell lymphoblastoid
+Lymphatic,Cell Line,B cell multiple myeloma
+Lymphatic,Cell Line,B lymphoblast (Multiple myeloma)
+Lymphatic,Cell Line,Chronic myeloid leukemia
+Lymphatic,Cell Line,Chronic myeloid leukemia 
+Lymphatic,Cell Line,Chronic myeloid leukemia (in G1 phase)
+Lymphatic,Cell Line,Chronic myeloid leukemia (in G2 phase)
+Lymphatic,Cell Line,Stromal cell (bone marrow)
+Lymphatic,Cell Line,T cell acute lymphoblastic leukemia
+Lymphatic,Germinal Center,Germinal center tissue
+Lymphatic,Lymph,"Activated CD4-positive, alpha-beta T cell"
+Lymphatic,Lymph,"Activated CD8-positive, alpha-beta memory T cell"
+Lymphatic,Lymph,Activated T-cell
+Lymphatic,Lymph,B cell
+Lymphatic,Lymph,B cell naive
+Lymphatic,Lymph,Macrophage (Inflammatory)
+Lymphatic,Lymph,Macrophage (Suppressor)
+Lymphatic,Lymph,Natural killer cell
+Lymphatic,Lymph,T cell
+Lymphatic,Lymph,T cell central memory
+Lymphatic,Lymph,T cell central memory 
+Lymphatic,Lymph,T cell effector
+Lymphatic,Lymph,T cell effector memory
+Lymphatic,Lymph,T cell follicular helper
+Lymphatic,Lymph,T cell helper 17
+Lymphatic,Lymph,T cell helper 17 
+Lymphatic,Lymph,T cell helper 22 
+Lymphatic,Lymph,T cell helper type 1
+Lymphatic,Lymph,T cell helper type 2
+Lymphatic,Lymph,T cell helper type 9
+Lymphatic,Lymph,T cell memory
+Lymphatic,Lymph,T cell naive
+Lymphatic,Lymph,T cell naive resting
+Lymphatic,Lymph,T cell regulatory
+Lymphatic,Lymph,T-cell
+Lymphatic,Lymphatic vessel,Dermis lymphatic microvascular endothelium
+Lymphatic,Small Intestine,Peyer's patch
+Lymphatic,Spleen,Spleen
+Lymphatic,Thymus,T cell naive
+Lymphatic,Thymus,T cell naïve
+Musculoskeletal,Bone ,Osteoblast
+Musculoskeletal,Cell Line,Fibrosarcoma
+Musculoskeletal,Cell Line,Muscle (Ewing sarcoma)
+Musculoskeletal,Cell Line,Myoblast
+Musculoskeletal,Cell Line,Myocyte (differentiated from LHCN-M2)
+Musculoskeletal,Cell Line,Osteosarcoma
+Musculoskeletal,Cell Line,Rhabdomyosarcoma
+Musculoskeletal,Ligament,Peridontal ligament fibroblast
+Musculoskeletal,Muscle,Gastrocnemius medialis
+Musculoskeletal,Muscle,Myoblast
+Musculoskeletal,Muscle,Myotube
+Musculoskeletal,Muscle,Psoas muscle
+Musculoskeletal,Muscle,Skeletal muscle
+Nervous,Brain,Astrocyte
+Nervous,Brain,Astrocyte (cerebellum)
+Nervous,Brain,Astrocyte (hippocampus)
+Nervous,Brain,Caudate nucleus
+Nervous,Brain,Cerebellar cortex
+Nervous,Brain,Cerebellum
+Nervous,Brain,Choroid plexus epithelium
+Nervous,Brain,Frontal cortex
+Nervous,Brain,Globus pallidus
+Nervous,Brain,Head of caudate nucleus
+Nervous,Brain,Hippocampus Ammon's horn
+Nervous,Brain,Medulla oblongata
+Nervous,Brain,Midbrain
+Nervous,Brain,Middle frontal area 46
+Nervous,Brain,Middle frontal gyrus
+Nervous,Brain,Occipital lobe
+Nervous,Brain,Parietal cortex (Inferior)
+Nervous,Brain,Pons
+Nervous,Brain,Posterior cingulate gyrus
+Nervous,Brain,Putamen
+Nervous,Brain,Superior temporal gyrus
+Nervous,Cell Line,Astrocytoma
+Nervous,Cell Line,Brain organoid
+Nervous,Cell Line,Cerebellum medulloblastoma
+Nervous,Cell Line,"Cerebellum, posterior fossa, medulloblastoma"
+Nervous,Cell Line,Glioblastoma
+Nervous,Cell Line,Neuroblastoma
+Nervous,Cell Line,Olfactory neurosphere
+Nervous,Cell Line,Retinoblastoma
+Nervous,Eye,Conjunctival fibroblast
+Nervous,Eye,Iris pigment epithelial cell
+Nervous,Eye,Non-pigmented ciliary epithelial cell
+Nervous,Eye,Retinal pigment epithelial cell
+Nervous,Peripheral Nerve,Astrocyte (spinal cord)
+Nervous,Peripheral Nerve,Sciatic nerve
+Nervous,Peripheral Nerve,Tibial nerve
+Reproductive,Breast,Breast epithelium
+Reproductive,Breast,Breast fibroblast
+Reproductive,Cell Line,Breast adenocarcinoma
+Reproductive,Cell Line,Breast ductal carcinoma
+Reproductive,Cell Line,Breast epithelium
+Reproductive,Cell Line,Cervical adenocarcinoma
+Reproductive,Cell Line,Endometrial adenocarcinoma
+Reproductive,Cell Line,Prostate adenocarcinoma
+Reproductive,Cell Line,Prostate epithelium
+Reproductive,Cell Line,Testicular embryonal carcinoma cell
+Reproductive,Ovary,Ovary
+Reproductive,Prostate ,Prostate
+Reproductive,Prostate ,Prostate epithelium
+Reproductive,Testis,Testis
+Reproductive,Uterus,Uterus
+Reproductive,Vagina,Vagina
+Respiratory,Cell Line,Lung adenocarcinoma
+Respiratory,Cell Line,Lung carcinoma
+Respiratory,Cell Line,Lung fibroblast
+Respiratory,Cell Line,Lung mesothelioma (NSCLC)
+Respiratory,Lung,Bronchial epithelium
+Respiratory,Lung,Lung
+Respiratory,Lung,Lung (Left)
+Respiratory,Lung,"Lung (Left, lower lobe)"
+Respiratory,Lung,"Lung (Left, upper lobe)"
+Respiratory,Lung,"Lung (Right, lower lobe)"
+Respiratory,Lung,"Lung (Right, upper lobe)"
+Respiratory,Lung,Lung fibroblast
+Urinary,Cell Line,Proximal tubular cell
+Urinary,Cell Line,Renal adenocarcinoma
+Urinary,Cell Line,Renal adenocarcinoma (clear cell)
+Urinary,Cell Line,Renal carcinoma cell
+Urinary,Cell Line,Renal cell carcinoma (clear cell)
+Urinary,Cell Line,"Rhabdoid tumor (Wilm's tumor, Kidney)"
+Urinary,Cell Line,Urothelium
+Urinary,Kidney,Glomerular endothelium
+Urinary,Kidney,Glomerular epithelium
+Urinary,Kidney,Glomerular visceral epithelial cell
+Urinary,Kidney,Kidney
+Urinary,Kidney,Kidney epithelium
+Urinary,Kidney,Kidney tubule cell
+Urinary,Kidney,Proximal tubule epithelium
+Urinary,Kidney,Renal cortical epithelium
+Urinary,Ureter,Ureter
