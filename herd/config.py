@@ -17,9 +17,10 @@ class ProdConfig(Config):
     DEBUG = False
     TESTING = False
     
-
-
-class DevConfig(Config):
+class TestConfig():
+    # def __init__(self,SQLALCHEMY_DATABASE_URI):
+    #     self.SQLALCHEMY_DATABASE_URI = SQLALCHEMY_DATABASE_URI
+    LOGIN_DISABLED = True
     FLASK_ENV = 'development'
     DEBUG = True
     TESTING = True

@@ -1,4 +1,4 @@
-from flask import jsonify, render_template, flash, session
+from flask import jsonify, render_template, flash, request
 from herd.searches.forms import QueryForm
 from herd.models import UserSearches, experiments, merged_peak, mp_overlap_vista,vista
 from herd import db
@@ -17,7 +17,8 @@ def search():
         experiments.system.distinct().label("system"))
     form.system.choices = ['All']
     form.system.choices += [row.system for row in query_system.all()]
-
+    if request.method:
+        form.query_history.data = 'None'
     if form.validate_on_submit():
         if current_user.is_authenticated:
             user_query = UserSearches(chromosome=form.chromosome.data, chromStart=form.chromStart.data, chromEnd=form.chromEnd.data, system=form.system.data,
@@ -76,7 +77,6 @@ def tissue(organ):
 def prevQueries():
     searches = UserSearches.query.filter(UserSearches.user_id==current_user.get_id()).all()
     searches_array = [{'search': 'None'}] + [{'search':search.to_dict()} for search in searches][::-1]
-    print(searches_array[1])
     return jsonify({'searches': searches_array})
     
 
