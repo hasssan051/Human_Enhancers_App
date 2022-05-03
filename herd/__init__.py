@@ -18,7 +18,7 @@ login_manager.login_message_category = 'info'
 
 def create_app(config=Config):
     app = Flask(__name__)
-    app.config.from_object(Config)
+    app.config.from_object(config)
 
     with app.app_context():
         db.init_app(app)
