@@ -8,7 +8,7 @@
 
  If you have conda then use the command:
 
- ```conda create --fyp_env --file requirements.txt```
+ ```conda env create -f environment.yml```
 
  If otherwise you want to make use of pip then use the following command to create the virtual environment:
 

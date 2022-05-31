@@ -17,25 +17,23 @@ def return_search_result(chrom,chromStart,chromEnd,system=None,organ=None,tissue
     else:
         if organ == 'All':
             
-
             #db.session.query().filter((merged_peak.chrom== chrom) & (merged_peak.chromStart>= chromStart) & (merged_peak.chromEnd<= chromEnd)).join()
-            first_sub = merged_peak.query.filter((merged_peak.chrom== chrom) & (merged_peak.chromStart>= chromStart) & (merged_peak.chromEnd<= chromEnd)).subquery()
-            second_sub = mp_narrow_accession.query.join(experiments, mp_narrow_accession.narrowPeaksAccession== experiments.narrowPeaksAccession
-            ).filter(experiments.system == system).subquery()
-            print(db.session.query(first_sub.mergedPeakId).join(second_sub, first_sub.mergedPeakId==second_sub.mergedPeakId).all())
-            return []
-
-            print(2)
+            # print(merged_peak.query.filter((merged_peak.chrom== chrom) & (merged_peak.chromStart>= chromStart) & (merged_peak.chromEnd<= chromEnd) & (merged_peak.experiments.any(experiments.query.filter(experiments.system == system)))).all())
+            # print(experiments.query.filter((experiments.system == system) & (experiments.merged_peaks.any(mergedPeakId.in_(merged_peak.mergedPeakId))).all())
+            # Artist.query.join(Artist.albums).filter_by(genre_id=genre.id).all()
+            #experiments.query.filter(Artist.albums.any(genre_id=genre.id)).all()
+            # second_sub = mp_narrow_accession.query.join(experiments, mp_narrow_accession.narrowPeaksAccession== experiments.narrowPeaksAccession
+            # ).filter(experiments.system == system).subquery()
+            # print(db.session.query(second_sub).all())
+            
             subquery = db.session.query(mp_narrow_accession.mergedPeakId
             ).outerjoin(experiments,mp_narrow_accession.narrowPeaksAccession == experiments.narrowPeaksAccession
             ).filter(experiments.system == system).subquery()
         else:
             if tissue == 'All':
-                print(3)
                 subquery = db.session.query(mp_narrow_accession.mergedPeakId
                 ).outerjoin(experiments,mp_narrow_accession.narrowPeaksAccession == experiments.narrowPeaksAccession
                 ).filter((experiments.system == system) & (experiments.organ == organ)).subquery()
-               
             else:
                 if not treated and not disease:
                     subquery = db.session.query(mp_narrow_accession.mergedPeakId

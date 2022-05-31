@@ -60,13 +60,17 @@ class experiments(db.Model):
     lifeStage = db.Column(db.String(45))
     biosampleAge = db.Column(db.String(100))
     narrowPeaksAccession = db.Column(db.String(100),primary_key=True, nullable=False)
-    #merged_peaks = db.relationship('mp_narrow_accession',secondary='merged_peaks',lazy=True)
+    merged_peaks = db.relationship('merged_peak',secondary='mp_narrow_accession',lazy='dynamic',backref=db.backref("experiments"))
 
 
 class mp_narrow_accession(db.Model):
     __bind_key__ = 'herd'
     mergedPeakId = db.Column(db.Integer,db.ForeignKey('merged_peak.mergedPeakId'),primary_key=True, nullable=False,autoincrement=False)
     narrowPeaksAccession = db.Column(db.String(100),db.ForeignKey('experiments.narrowPeaksAccession'),primary_key=True, nullable=False,autoincrement=False)
+    chrom = db.Column(db.String(10),nullable=False)
+    # experiments = db.relationship(experiments,backref=db.backref("experiment_assoc"))
+    
+
 
 class merged_peak(db.Model):
     __bind_key__ = 'herd'
@@ -77,6 +81,7 @@ class merged_peak(db.Model):
     chromEnd = db.Column(db.Integer,nullable=False)
     Prefixes = db.Column(db.String(10),nullable=False)
     Location = db.Column(db.String(50))
+    # experiments = db.relationship('experiments',secondary='mp_narrow_accession',lazy='dynamic',backref=db.backref("experiments"))
 
 
 class vista(db.Model):
